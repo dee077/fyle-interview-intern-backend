@@ -14,7 +14,7 @@ timeout      = int(os.environ.get('GUNICORN_WORKER_TIMEOUT', 60))
 keepalive    = int(os.environ.get('GUNICORN_KEEPALIVE', 2))
 
 loglevel     = os.environ.get('GUNICORN_LOG_LEVEL', 'info')
-worker_class = os.environ.get('GUNICORN_WORKER_CLASS', 'sync')
+worker_class = os.environ.get('GUNICORN_WORKER_CLASS', 'sync') # worker_connections is not applicable to sync
 max_requests = int(os.environ.get('GUNICORN_MAX_REQUESTS', 0))
 max_requests_jitter = int(os.environ.get('GUNICORN_MAX_REQUESTS_JITTER', 20))
 graceful_timeout = int(os.environ.get('GUNICORN_WORKER_GRACEFUL_TIMEOUT', 5))
