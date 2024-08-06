@@ -1,0 +1,13 @@
+{
+    "name": "Flask App",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "web",
+    "workspaceFolder": "/app",
+    "extensions": [
+      "ms-python.python",
+      "ms-python.vscode-pylance"
+    ],
+    "settings": {
+      "python.pythonPath": "/usr/local/bin/python"
+    }
+  }
