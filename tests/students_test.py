@@ -11,6 +11,25 @@ def test_get_assignments_student_1(client, h_student_1):
         assert assignment['student_id'] == 1
 
 
+def test_get_assignments_student_without_principal_header(client, h_student_1):
+    """
+    failure case: principal not found
+    """
+    response = client.get(
+        '/student/assignments',
+    )
+    assert response.status_code == 401
+
+def test_get_assignments_student_with_principal_header_teacher(client, h_teacher_1):
+    """
+    failure case: Wrong principal header sent
+    """
+    response = client.get(
+        '/student/assignments',
+        headers=h_teacher_1
+    )
+    assert response.status_code == 403
+
 def test_get_assignments_student_2(client, h_student_2):
     response = client.get(
         '/student/assignments',

@@ -14,6 +14,26 @@ def test_get_assignments(client, h_principal):
         assert assignment['state'] in [AssignmentStateEnum.SUBMITTED, AssignmentStateEnum.GRADED]
 
 
+def test_get_assignments_principal_without_principal_header(client, h_student_1):
+    """
+    failure case: principal not found
+    """
+    response = client.get(
+        '/principal/assignments',
+    )
+    assert response.status_code == 401
+
+def test_get_assignments_principal_with_principal_header_student(client, h_student_1):
+    """
+    failure case: Wrong principal header sent
+    """
+    response = client.get(
+        '/principal/assignments',
+        headers=h_student_1
+    )
+    assert response.status_code == 403
+
+
 def test_grade_assignment_draft_assignment(client, h_principal):
     """
     failure case: If an assignment is in Draft state, it cannot be graded by principal
@@ -60,3 +80,14 @@ def test_regrade_assignment(client, h_principal):
 
     assert response.json['data']['state'] == AssignmentStateEnum.GRADED.value
     assert response.json['data']['grade'] == GradeEnum.B
+
+def test_list_teachers(client, h_principal):
+    response = client.get(
+        '/principal/teachers', 
+        headers=h_principal
+    )
+    
+    assert response.status_code == 200
+
+    data = response.json['data']
+    assert len(data) == 2

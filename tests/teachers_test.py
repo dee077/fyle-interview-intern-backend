@@ -1,3 +1,5 @@
+from core.models.assignments import AssignmentStateEnum, GradeEnum
+
 def test_get_assignments_teacher_1(client, h_teacher_1):
     response = client.get(
         '/teacher/assignments',
@@ -9,6 +11,26 @@ def test_get_assignments_teacher_1(client, h_teacher_1):
     data = response.json['data']
     for assignment in data:
         assert assignment['teacher_id'] == 1
+
+
+def test_get_assignments_principal_without_principal_header(client):
+    """
+    failure case: principal not found
+    """
+    response = client.get(
+        '/teacher/assignments',
+    )
+    assert response.status_code == 401
+
+def test_get_assignments_teacher_with_principal_header_student(client, h_student_1):
+    """
+    failure case: Wrong principal header sent
+    """
+    response = client.get(
+        '/teacher/assignments',
+        headers=h_student_1
+    )
+    assert response.status_code == 403
 
 
 def test_get_assignments_teacher_2(client, h_teacher_2):
@@ -99,3 +121,38 @@ def test_grade_assignment_draft_assignment(client, h_teacher_1):
     data = response.json
 
     assert data['error'] == 'FyleError'
+
+
+def test_grade_assignment_different_teacher(client, h_teacher_1, h_teacher_2):
+    """
+    failure case: assignment assigned to a different teacher
+    """
+    response = client.post(
+        '/teacher/assignments/grade',
+        headers=h_teacher_2,
+        json={
+            "id": 1,
+            "grade": "A"
+        }
+    )
+
+    assert response.status_code == 400
+    data = response.json
+
+    assert data['error'] == 'FyleError'
+
+
+def test_regrade_assignment(client, h_teacher_1):
+    response = client.post(
+        '/teacher/assignments/grade',
+        headers=h_teacher_1
+        , json={
+            "id": 1,
+            "grade": "B"
+        }
+    )
+
+    assert response.status_code == 200
+
+    assert response.json['data']['state'] == AssignmentStateEnum.GRADED.value
+    assert response.json['data']['grade'] == GradeEnum.B
