@@ -8,58 +8,73 @@ The implemented APIs can be tested using the following [Postman workspace URL](w
 
 ## Completed Tasks
 
-### Added Missing APIs ✅
+### 1. Added Missing APIs ✅
 I have implemented the following missing APIs:
 
 - GET `/principal/assignments`: List all submitted and graded assignments.
 - GET `/principal/teachers`: List all teachers.
 - POST `/principal/assignments/grade`: Grade or re-grade an assignment.
 
-### Resolved Bugs ✅
+### 2. Resolved Bugs ✅
 All intentional bugs in the application have been identified and resolved.
 
-### Passed All Test Cases
+### 3. Passed All Test Cases ✅
 I have ensured that all test cases pass successfully.
 
-### Written SQL Queries
+### 4. Written SQL Queries ✅
 I have written the necessary SQL queries for the following:
 - **count_grade_A_assignments_by_teacher_with_max_grading.sql**
 - **number_of_graded_assignments_for_each_student.sql**
 
-### Test Coverage to 95%
+### 5. Test Coverage to 95% ✅
 The test coverage has been increased to 95%, ensuring robust and reliable code.
+
 ![Test Coverage](images/test_coverage.png)
 
-### Dockerized the App
+### 6. Dockerized the App ✅
 The application has been Dockerized, including the creation of `Dockerfile` and `docker-compose.yml` files. This simplifies the building and running of the application.
-
-## Why work at Fyle?
-
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
-
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
-
-
-## Challenge outline
-
-**You are allowed to use any online/AI tool such as ChatGPT, Gemini, etc. to complete the challenge. However, we expect you to fully understand the code and logic involved.**
-
-This challenge involves writing a backend service for a classroom. The challenge is described in detail [here](./Application.md)
-
-
-## What happens next?
-
-You will hear back within 48 hours from us via email. 
-
 
 ## Installation
 
 1. Fork this repository to your github account
 2. Clone the forked repository and proceed with steps mentioned below
 
-### Install requirements
+### Prerequisites
 
-```
+1. **Docker Desktop**
+   - **Windows/Mac**: Install Docker Desktop from [Docker's official website](https://www.docker.com/products/docker-desktop).
+   - **Verify Installation**: Open a terminal and run:
+     ```bash
+     docker --version
+     docker-compose --version
+     ```
+
+2. **Visual Studio Code (VSCode)**
+   - Install VSCode from [Visual Studio Code's website](https://code.visualstudio.com/).
+
+3. **VSCode Extensions**
+   - **Remote - Containers**: Allows you to open a project inside a container.
+
+   ![Extension](images/extension.png)
+
+   - **Open VSCode in Development Container** : Command Palette: Press `Ctrl+Shift+P` or `Cmd+Shift+P` and then enter/select `Dev Containers: Rebuild and Reopen in container`
+
+   - **Open Logs of the Build** : By clicking on the popup at the bottom right you can see the build logs
+
+   ![Logs](images/logs.png)
+
+   - **If you want to Get out of Docker Container** : Command Palette: Press `Ctrl+Shift+P` or `Cmd+Shift+P` and then enter/select `Dev Containers: Reopen Folder Locally`
+
+### Setup and Build
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/dee077/fyle-interview-intern-backend.git
+   cd fyle-interview-intern-backend
+
+   ```
+
 virtualenv env --python=python3.8
 source env/bin/activate
 pip install -r requirements.txt
