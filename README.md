@@ -109,6 +109,6 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
 
 ## Submission
 
-I have completed the assignment as per the given requirements and it is ready for submission.
-Thank you!
+I have completed the assignment as per the given requirements and it is ready for submission. <br>
+Thank you! <br>
 Deepanshu Sahu
