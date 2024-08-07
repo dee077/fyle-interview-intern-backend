@@ -44,6 +44,7 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
 1. **Docker Desktop**
    - **Windows/Mac**: Install Docker Desktop from [Docker's official website](https://www.docker.com/products/docker-desktop).
    - **Verify Installation**: Open a terminal and run:
+   
      ```bash
      docker --version
      docker-compose --version
@@ -93,6 +94,7 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
    ```
 
 5. **Run Tests**
+
    - Run test by running
 
    ``` bash
