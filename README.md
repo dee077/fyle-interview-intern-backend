@@ -53,9 +53,20 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
    - Install VSCode from [Visual Studio Code's website](https://code.visualstudio.com/).
 
 3. **VSCode Extensions**
-   - **Remote - Containers**: Allows you to open a project inside a container.
+   - **Remote - Containers**: Install this, Allows you to open a project inside a container.
 
    ![Extension](images/extension.png)
+
+### Setup and Build
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/dee077/fyle-interview-intern-backend.git
+   cd fyle-interview-intern-backend
+   ```
+
+2. **Build and Start Container**
 
    - **Open VSCode in Development Container** : Command Palette: Press `Ctrl+Shift+P` or `Cmd+Shift+P` and then enter/select `Dev Containers: Rebuild and Reopen in container`
 
@@ -65,38 +76,31 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
 
    - **If you want to Get out of Docker Container** : Command Palette: Press `Ctrl+Shift+P` or `Cmd+Shift+P` and then enter/select `Dev Containers: Reopen Folder Locally`
 
-### Setup and Build
+   - Open new terminal in VSCode to run cammands for the app inside the docker container.
 
-1. **Clone the Repository**
+3. **Access Application**
+
+   - Your app is running inside the Docker container and is mapped to `http://localhost:8000`.
+
+4. **Reset DB**
+   
+   - If want to reset db to is original values 
 
    ```bash
-   git clone https://github.com/dee077/fyle-interview-intern-backend.git
-   cd fyle-interview-intern-backend
-
+   export FLASK_APP=core/server.py
+   rm core/store.sqlite3
+   flask db upgrade -d core/migrations/
    ```
 
-virtualenv env --python=python3.8
-source env/bin/activate
-pip install -r requirements.txt
-```
-### Reset DB
+5. **Run Tests**
+   - Run test by running
 
-```
-export FLASK_APP=core/server.py
-rm core/store.sqlite3
-flask db upgrade -d core/migrations/
-```
-### Start Server
+   ``` bash
+   pytest -vvv -s tests/
+   ```
 
-```
-bash run.sh
-```
-### Run Tests
+   - Run test coverage for test coverage report 
 
-```
-pytest -vvv -s tests/
-
-# for test coverage report
-# pytest --cov
-# open htmlcov/index.html
-```
+   ```bash   
+   pytest --cov
+   ```
