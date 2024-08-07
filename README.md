@@ -1,42 +1,37 @@
 # Fyle Backend Challenge Completion
 
 ## Overview
-    I have completed the Fyle assignment, implementing the missing APIs and ensuring that all tests pass with
-    a coverage of `95%`. The application has also been `Dockerized` for easier deployment.
+I have completed the Fyle assignment, implementing the missing APIs and ensuring that all tests pass with a coverage of `95%`. The application has also been `Dockerized` for easier deployment.
 
 ## Postman Workspace
-    The implemented APIs can be tested using the following [Postman workspace URL](www.google.com)
+The implemented APIs can be tested using the following [Postman workspace URL](www.google.com)
 
 ## Completed Tasks
 
 ### Added Missing APIs ✅
-    I have implemented the following missing APIs:
+I have implemented the following missing APIs:
 
-    - GET `/principal/assignments`: List all submitted and graded assignments.
-    - GET `/principal/teachers`: List all teachers.
-    - POST `/principal/assignments/grade`: Grade or re-grade an assignment.
-
+- GET `/principal/assignments`: List all submitted and graded assignments.
+- GET `/principal/teachers`: List all teachers.
+- POST `/principal/assignments/grade`: Grade or re-grade an assignment.
 
 ### Resolved Bugs ✅
-    All intentional bugs in the application have been identified and resolved.
+All intentional bugs in the application have been identified and resolved.
 
 ### Passed All Test Cases
-    I have ensured that all test cases pass successfully.
+I have ensured that all test cases pass successfully.
 
 ### Written SQL Queries
-
-    I have written the necessary SQL queries for the following:
-        - count_grade_A_assignments_by_teacher_with_max_grading.sql
-        - number_of_graded_assignments_for_each_student.sql
+I have written the necessary SQL queries for the following:
+- **count_grade_A_assignments_by_teacher_with_max_grading.sql**
+- **number_of_graded_assignments_for_each_student.sql**
 
 ### Test Coverage to 95%
-
-    The test coverage has been increased to 95%, ensuring robust and reliable code.
-    [Test Coverage](images/test_coverage.png)
+The test coverage has been increased to 95%, ensuring robust and reliable code.
+![Test Coverage](images/test_coverage.png)
 
 ### Dockerized the App
-    The application has been Dockerized, including the creation of `Dockerfile` and `docker-compose.yml` 
-    files. This simplifies the building and running of the application.
+The application has been Dockerized, including the creation of `Dockerfile` and `docker-compose.yml` files. This simplifies the building and running of the application.
 
 ## Why work at Fyle?
 
