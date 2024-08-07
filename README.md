@@ -106,3 +106,9 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
    ```bash   
    pytest --cov
    ```
+
+## Submission
+
+I have completed the assignment as per the given requirements and it is ready for submission.
+Thank you!
+Deepanshu Sahu
