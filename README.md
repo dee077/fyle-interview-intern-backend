@@ -4,7 +4,7 @@
 I have completed the Fyle assignment, implementing the missing APIs and ensuring that all tests pass with a coverage of `95%`. The application has also been `Dockerized` for easier deployment.
 
 ## Postman Workspace
-The implemented APIs can be tested using the following [Postman workspace URL](www.google.com)
+The implemented APIs can be tested using the following [Postman workspace URL](https://documenter.getpostman.com/view/27758306/2sA3rzKsYg)
 
 ## Completed Tasks
 
@@ -44,7 +44,7 @@ The application has been Dockerized, including the creation of `Dockerfile` and 
 1. **Docker Desktop**
    - **Windows/Mac**: Install Docker Desktop from [Docker's official website](https://www.docker.com/products/docker-desktop).
    - **Verify Installation**: Open a terminal and run:
-   
+
      ```bash
      docker --version
      docker-compose --version
