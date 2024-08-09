@@ -1,7 +1,7 @@
 # Fyle Backend Challenge Completion
 
 ## Overview
-I have completed the Fyle assignment, implementing the missing APIs and ensuring that all tests pass with a coverage of `97%`. The application has also been `Dockerized` for easier deployment.
+I have completed the Fyle assignment, implementing the missing APIs and ensuring that all tests pass with a coverage of `99%`. The application has also been `Dockerized` for easier deployment.
 
 ## Postman Workspace
 The implemented APIs can be tested using the following [Postman workspace URL](https://documenter.getpostman.com/view/27758306/2sA3rzKsYg)
@@ -26,8 +26,8 @@ I have written the necessary SQL queries for the following:
 - **count_grade_A_assignments_by_teacher_with_max_grading.sql**
 - **number_of_graded_assignments_for_each_student.sql**
 
-### 5. Test Coverage to 97% ✅
-The test coverage has been increased to 97%, ensuring robust and reliable code.
+### 5. Test Coverage to 99% ✅
+The test coverage has been increased to 99%, ensuring robust and reliable code.
 
 ![Test Coverage](images/test_coverage.png)
 
