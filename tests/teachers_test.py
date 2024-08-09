@@ -1,4 +1,17 @@
+import pytest
 from core.models.assignments import AssignmentStateEnum, GradeEnum
+from core.models.teachers import Teacher
+
+@pytest.fixture
+def existing_teacher():
+    return Teacher.query.first()
+
+
+def test_teacher_repr(existing_teacher):
+    teacher = existing_teacher
+    repr_output = repr(teacher)
+    expected_repr = f'<Teacher {teacher.id!r}>'
+    assert repr_output == expected_repr
 
 def test_get_assignments_teacher_1(client, h_teacher_1):
     response = client.get(

@@ -1,3 +1,17 @@
+import pytest
+from core.models.students import Student
+
+@pytest.fixture
+def existing_student():
+    # we need atleast one student already present
+    return Student.query.first()
+
+def test_student_repr(existing_student):
+    student = existing_student
+    repr_output = repr(student)
+    expected_repr = f'<Student {student.id!r}>'
+    assert repr_output == expected_repr
+
 def test_get_assignments_student_1(client, h_student_1):
     response = client.get(
         '/student/assignments',
@@ -105,3 +119,39 @@ def test_assignment_resubmit_error(client, h_student_1):
     assert response.status_code == 400
     assert error_response['error'] == 'FyleError'
     assert error_response["message"] == 'only a draft assignment can be submitted'
+
+
+def test_submit_assignment_missing_fields(client, h_student_1):
+    response = client.post(
+        '/student/assignments/submit',
+        headers=h_student_1,
+        json={}
+    )
+    assert response.status_code == 400
+    assert response.json['error'] == 'ValidationError'
+
+def test_upsert_existing_assignment(client, h_student_1):
+    # Create a draft assignment
+    response = client.post(
+        '/student/assignments',
+        headers=h_student_1,
+        json={'content': 'Initial content'}
+    )
+    assert response.status_code == 200
+    draft_assignment = response.json['data']
+    assignment_id = draft_assignment['id']
+    
+    # Upsert the existing assignment with new content
+    new_content = 'Updated content'
+    response = client.post(
+        '/student/assignments',
+        headers=h_student_1,
+        json={
+            'id': assignment_id,
+            'content': new_content
+        })
+    
+    assert response.status_code == 200
+    updated_assignment = response.json['data']
+    assert updated_assignment['content'] == new_content
+    assert updated_assignment['state'] == 'DRAFT'  # Ensure the state is still DRAFT
